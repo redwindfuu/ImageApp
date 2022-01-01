@@ -24,13 +24,13 @@ class User {
     return 0;
   }
   set(data){
-    this.data.name = data.name||''
-    this.data.user = data.user||''
-    this.data.password = data.password||''
-    this.data.pri = data.pri||''
-    this.data.pub = data.pub||''
-    this.data.n = data.n||0
-    this.image_gallery = data.image_gallery || {}
+    this.data.name = data.name ? data.name : this.data.name
+    this.data.user = data.user ? data.user : this.data.user
+    this.data.password = data.password ? data.password : this.data.password
+    this.data.pri = data.pri ? data.pri : this.data.pri
+    this.data.pub = data.pub ? data.pub : this.data.pub
+    this.data.n = data.n ? data.n : this.data.n
+    this.image_gallery = data.image_gallery ? data.image_gallery : this.data.image_gallery
   }
   add_image_gallery(data){
       this.data.image_gallery.push(data)

@@ -20,11 +20,11 @@ class Image {
     return 0;
   }
   set(data){
-    this.data.name = data.name||''
-    this.data.buffer = data.buffer||''
-    this.data.pri = data.pri||''
-    this.data.pub = data.pub||''
-    this.data.n = data.n||0
+    this.data.name = data.name ? data.name : this.data.name
+    this.data.buffer = data.buffer ? data.buffer : this.data.buffer
+    this.data.pri = data.pri ? data.pri : this.data.pri
+    this.data.pub = data.pub ? data.pub : this.data.pub
+    this.data.n = data.n ? data.n : this.data.n
   }
   getPrivate(){
       return {
@@ -34,6 +34,7 @@ class Image {
   }
   getValues(){
     return {
+        id: this.id,
         name: this.data.name,
         buffer : this.data.buffer,
         pub : this.data.pub,
