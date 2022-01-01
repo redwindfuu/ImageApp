@@ -24,6 +24,24 @@ class User {
     return 0;
   }
   set(data){
+    if(!this.data.name){
+      this.data.name = ''
+    }
+    if(!this.data.buffer){
+      this.data.buffer = ''
+    }
+    if(!this.data.pri){
+      this.data.pri = ''
+    }
+    if(!this.data.pub){
+      this.data.pub = ''
+    }
+    if(!this.data.n){
+      this.data.n = 0
+    }
+    if(!this.data.image_gallery){
+      this.data.image_gallery = {}
+    }
     this.data.name = data.name ? data.name : this.data.name
     this.data.user = data.user ? data.user : this.data.user
     this.data.password = data.password ? data.password : this.data.password
