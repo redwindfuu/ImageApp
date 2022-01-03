@@ -21,7 +21,7 @@ class SiteController {
         // }
         // var user = new userModel('',dat)
         // await user.save();
-        res.send('hello world')
+        res.redirect('/auth/login')
     }
 
 }
