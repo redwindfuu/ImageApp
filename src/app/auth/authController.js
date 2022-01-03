@@ -5,7 +5,8 @@ class AuthController {
   // [GET]: /auth/login
   async login(req, res, next) {
     try {
-      res.render("auth/login");
+      var err = req.query.erro || 0
+      res.render("auth/login",{err});
     } catch (error) {
       next(error);
     }
@@ -25,18 +26,18 @@ class AuthController {
                 console.log(doc.id, " => ", doc.data());
                 userID = doc.id;
                 res.send("Sucess");
+                h = new userModel(doc.id,doc.data())
                 // Do somethinghere
                 //
                 //
                 // function here
               });
-        }
-        if (userID == "") {
-          res.send("Your username or password are wrong");
+        }else{
+            res.redirect('/auth/login?erro=1');
         }
       });
-    } catch (error) {
-      next(error);
+    } catch (e) {
+      next(e);
     }
   }
 }
