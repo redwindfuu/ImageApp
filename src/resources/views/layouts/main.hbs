@@ -27,8 +27,9 @@
     <style>
         img {
             max-width: 180px;
+            border-radius: 5px 5px 0 0;
         }
-
+    
         input[type=file] {
             padding: 10px;
             background: #2d2d2d;
@@ -42,11 +43,20 @@
         }
 
         .bar-tool {
+            margin-left: 2px;
             margin-bottom: 10px;
         }
 
         .card {
             /* Add shadows to create the "card" effect */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+            padding:10px;
+            width:  350px;
+            height: 250px;
+            overflow: hidden;
+            background-size: cover;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
         }
@@ -59,7 +69,9 @@
         /* Add some padding inside the card container */
         .container {
             padding: 2px 16px;
+            
         }
+        
 
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
@@ -69,9 +81,7 @@
         }
 
         /* Add rounded corners to the top left and the top right corner of the image */
-        img {
-            border-radius: 5px 5px 0 0;
-        }
+    
     </style>
 
 <body>
