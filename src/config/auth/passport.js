@@ -2,7 +2,6 @@ const passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy;
 
 const authservice = require('../../app/auth/authService');
-const db = require('../firebase')
 passport.use(
   new LocalStrategy(async function (username, password, done) {
     try {
