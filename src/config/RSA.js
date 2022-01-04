@@ -1,5 +1,4 @@
 class RSA {
-    
     constructor(){
         this.p = 0;
         this.q = 0;
@@ -12,13 +11,15 @@ class RSA {
         this.q = genPrime();
         while( this.p == this.q)
             this.q = genPrime()
-        this.n = p*q;
+        this.n = this.p*this.q;
         this.euler = (this.p-1)*(this.q -1);
         this.e = Math.floor(Math.random() * (this.euler -1)) + 1;
         for(let i =0 ;;i++)
         {
-            var t = (i*this.euler +1)/this.e
+            var t = (i*this.euler +1)/this.e;
+            break;
         }
+        return {pub:this.e, pri:this.d, n:this.n};
     }
     Decryto(){
 
@@ -43,7 +44,7 @@ function isPrime(value){
     else{
         for (var i = 2; i < Math.sqrt(value); i++)
         {
-            if (n % i == 0){
+            if (value % i == 0){
                 flag = false;
                 break;
             }
@@ -59,4 +60,4 @@ function isPrime(value){
     }
 }
 
-module.exports = new RSA()
+module.exports = RSA
