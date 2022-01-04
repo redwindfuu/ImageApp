@@ -16,3 +16,9 @@ exports.register=async (req) => {
         await user.save();
     return 'oke';
 }
+exports.checkuserExsit = async (user) => {
+   var user2 = new usermodel('',{});
+   user2.set({user})
+   var h = await user2.checkExist() 
+   return h
+}

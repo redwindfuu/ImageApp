@@ -35,6 +35,8 @@ app.use(session({ secret: "meo" }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
 Router(app)
 
 // catch 404 and forward to error handler

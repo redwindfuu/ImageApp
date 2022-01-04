@@ -34,25 +34,10 @@ class AuthController {
 
   async postlogin(req, res, next) {
     try {
-      var docRef = await db
-        .collection("USER")
-        .where("user", "==", req.body.username)
-        .where("password", "==", req.body.password);
-      console.log(docRef);
-      var userID =""
-      await docRef.get().then((querySnapshot) => {
-        if(!querySnapshot.empty){
-            querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                userID = doc.id;
-             //   res.send("Sucess");
-              //  h = new userModel(doc.id,doc.data())
-                res.redirect('/gallery')
-              });
-        }else{
-            res.redirect('/auth/login?erro=1');
-        }
-      });
+      console.log('here')
+      if(req.user){
+        res.redirect('/gallery')
+      }
     } catch (e) {
       next(e);
     }
