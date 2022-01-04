@@ -8,96 +8,116 @@
         margin-right: 4px;" class="pull-right"
 					src="https://dthezntil550i.cloudfront.net/86/latest/861911302007288750002221253/05f85cab-dc3a-48e3-81ff-b7347d2e450b.png">
 			</a>
+			<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
 		</div>
 	</div>
 </nav>
 
 
 <body>
-
-
 	<div class="container">
 		<nav>
 			<div class="row bar-tool">
-				<a href="" class="btn btn-primary ">
+				<span class="check-all-img" style="margin-right: 10px;">
+					<input style="margin: auto;" type="checkbox" name="" value="1" id="checkall">
+					<label for="checkall">Check all</label>
+				</span>	
+				<button class="btn btn-primary " data-toggle="modal" data-target="#modal-share"  style="margin-right: 10px;">
 					Share
-				</a>
-				<a href="" id="insert-img" class="btn btn-primary ">
+				</button>
+				<a href="" id="insert-img"  style="margin-right: 10px;" data-toggle="modal" data-target="#modal-upload" class="btn btn-primary ">
 					Add image
 				</a>
-				{{!-- <input class="btn btn-primary " type='file' name="image" onchange="readURL(this);" />
-				<img id="blah" src="http://placehold.it/180" alt="your image" />
-				</div> --}}
 		</nav>
-		<div class="row">
+		<form method="post" id="share-form" action="haha" class="row">
 			<div class="col-lg-4 col-sm-6">
 				<div class="card">
-					<input type="checkbox" id="myCheckbox1" />
+					<input type="checkbox"  name="myImg[]" class="imgCheck" />
 					<div class="thumbnail img-responsive">
 						<a href="#" title="Image 1"><img
-								src="https://images.unsplash.com/photo-1494719019271-7bfff81660d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=74496a215491b1529d6702f146901970&auto=format&fit=crop&w=500&q=60">
+								src="https://genk.mediacdn.vn/2019/12/18/photo-1-1576648714470777594840.jpg">
 						</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-sm-6">
-				<input type="checkbox" id="myCheckbox1" />
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1"><img
-							src="https://images.unsplash.com/photo-1523357585206-175e971f2ad9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4d4e050da1c691f01f0643abe9cd5f94&auto=format&fit=crop&w=500&q=60"></a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6 ">
-				<input type="checkbox" id="myCheckbox1" />
-				<div class="thumbnail">
-					<a href="#" title="Image 1"><img
-							src="https://images.unsplash.com/photo-1523359366921-4c14294ff5bd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6010b5b8bc1f6916d652fb48b9e039a6&auto=format&fit=crop&w=500&q=60"></a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<input type="checkbox" id="myCheckbox1" />
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1"><img
-							src="https://images.unsplash.com/photo-1523282310917-57c94215f54f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9562049492c4c1c28014be6b4d372fa8&auto=format&fit=crop&w=500&q=60"></a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
 
-				<input type="checkbox" id="myCheckbox1" />
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1"><img
-							src="https://images.unsplash.com/photo-1523279719030-9806e8392152?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83ec2854d04d0f08312dec44bf645e2d&auto=format&fit=crop&w=500&q=60"></a>
-				</div>
-			</div>
 			<div class="col-lg-4 col-sm-6">
-				<input type="checkbox" id="myCheckbox1" />
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1"><img
-							src="https://images.unsplash.com/photo-1523264629844-40dd6bf17c2b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c7ff0286ae72f4dfed2bfee5fc8a53fe&auto=format&fit=crop&w=500&q=60"></a>
+				<div class="card">
+					<input type="checkbox"  name="myImg[]" class="imgCheck" />
+					<div class="thumbnail img-responsive">
+						<a href="#" title="Image 1"><img
+								src="https://genk.mediacdn.vn/2018/3/15/remanime-152109809170177152965.png">
+						</a>
+					</div>
 				</div>
 			</div>
+
 			<div class="col-lg-4 col-sm-6">
-				<input type="checkbox" id="myCheckbox1" />
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1"><img
-							src="https://images.unsplash.com/photo-1523133892278-d324fa6b326b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1ba6e3178a138e7dcbdd241499378449&auto=format&fit=crop&w=500&q=60"></a>
+				<div class="card">
+					<input type="checkbox"  name="myImg[]" class="imgCheck" />
+					<div class="thumbnail img-responsive">
+						<a href="#" title="Image 1">
+							<img src="https://c4.wallpaperflare.com/wallpaper/1016/85/224/final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
+						</a>
+					</div>
 				</div>
 			</div>
+
 			<div class="col-lg-4 col-sm-6">
-				<input type="checkbox" id="myCheckbox1" />
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1"><img
-							src="https://images.unsplash.com/photo-1523326350151-473dc3e5215b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=aa765415933dbcd55bc27e0726bfd1f5&auto=format&fit=crop&w=500&q=60"></a>
+				<div class="card">
+					<input type="checkbox"  name="myImg[]" class="imgCheck" />
+					<div class="thumbnail img-responsive">
+						<a href="#" title="Image 1">
+							<img src="https://c4.wallpaperflare.com/wallpaper/1002/498/322/final-fantasy-final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
+						</a>
+					</div>
 				</div>
 			</div>
+
 			<div class="col-lg-4 col-sm-6">
-				<input type="checkbox" id="myCheckbox1" />
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1"><img
-							src="https://images.unsplash.com/photo-1523086686757-5cda47c78492?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0da31c54dc3e5fd28da519b2cde2c98d&auto=format&fit=crop&w=500&q=60"></a>
+				<div class="card">
+					<input type="checkbox"  name="myImg[]" class="imgCheck" />
+					<div class="thumbnail img-responsive">
+						<a href="#" title="Image 1">
+							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1XoKNz9Rygt7-pNeLH0JhsFvGBV94zkdSiA&usqp=CAU">
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
+
+			<div class="col-lg-4 col-sm-6">
+				<div class="card">
+					<input type="checkbox"  name="myImg[]" class="imgCheck" />
+					<div class="thumbnail img-responsive">
+						<a href="#" title="Image 1">
+							<img src="https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/e9fef2d083cf11ea8f996dbfbe6e50b1.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-sm-6">
+				<div class="card">
+					<input type="checkbox"  name="myImg[]" class="imgCheck" />
+					<div class="thumbnail img-responsive">
+						<a href="#" title="Image 1">
+							<img src="https://images.unsplash.com/photo-1494719019271-7bfff81660d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=74496a215491b1529d6702f146901970&auto=format&fit=crop&w=500&q=60">
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-sm-6">
+				<div class="card">
+					<input type="checkbox"  name="myImg[]" class="imgCheck" />
+					<div class="thumbnail img-responsive">
+						<a href="#" title="Image 1">
+							<img src="https://i.pinimg.com/736x/25/f8/5d/25f85d6aae0d7a212febf8e6d479f0f3.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 	</div>
 	<div id="modal" class="modal fade" tabindex="-1" role="dialog">
@@ -111,15 +131,54 @@
 			</div>
 		</div>
 	</div>
-	<div id="modal-upload" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
 				</div>
 				<div class="modal-body">
-					<input type='file' onchange="readURL(this);" />
-					<img id="blah" src="http://placehold.it/180" alt="your image" />
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal-upload" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="gridSystemModalLabel">Upload image</h4>
+				</div>
+				<div class="modal-body">
+					<form id="my-form" action="" method="post" enctype="multipart/form-data">
+						<input type='file' onchange="readURL(this);" />
+						<img id="blah" src="http://placehold.it/180" alt="your image" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" form="my-form"  class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-share" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="gridSystemModalLabel">share image with friend</h4>
+				</div>
+				<div class="modal-body">
+					Chọn tên id người muốn giử 
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" form="share-form"  class="btn btn-primary">Save changes</button>
 				</div>
 			</div>
 		</div>
@@ -140,12 +199,16 @@
 		</section>
 		<section class="footer-bottom">
 			<div class="footer-bottom-wrapper">
-				<i class="fa fa-copyright" role="copyright"></i> 2018 <a href="https://codepen.io/pa_patki/"><strong>
+				<i class="fa fa-copyright" role="copyright"></i> 2021 <a href="https://codepen.io/pa_patki/"><strong>
 						Những con đỉ sài gòn</strong></a> <span class="footer-bottom-rights"> - All Rights Reserved -
 				</span>
 			</div>
 		</section>
 	</footer>
+
+
+
+
 	<script src="https://code.jquery.com/jquery-3.3.1.js"
 		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

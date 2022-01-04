@@ -78,7 +78,7 @@
     <div class="container">
         {{{body}}}
     </div>
-    <script src="/javascript/login.js"></script>
+    {{!-- <script src="javascripts/login.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -89,10 +89,7 @@
             $($(this).parents('div').html()).appendTo('.modal-body');
             $('#modal').modal({ show: true });
         });
-        $('#insert-img').click(function () {
-                
-               $('#modal-upload').modal({ show: true });
-        })
+       
 
         $('#modal').on('show.bs.modal', function () {
             $('.col-6,.row .thumbnail').addClass('blur');
@@ -100,9 +97,8 @@
 
         $('#modal').on('hide.bs.modal', function () {
             $('.col-6,.row .thumbnail').removeClass('blur');
-        })
-        
-            function readURL(input) {
+        })    
+        function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
 
@@ -114,6 +110,16 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+        var checkItem =  $('input[name="myImg[]"]')
+        $('#checkall').change(function (e) {
+           var thisit = $(this).prop('checked')
+           checkItem.prop('checked' ,thisit)
+        })
+        checkItem.change(function (e) {
+            var check = checkItem.length === $('input[name="myImg[]"]:checked').length
+             $('#checkall').prop('checked' ,check)
+        })
+
     </script>
 </body>
 
