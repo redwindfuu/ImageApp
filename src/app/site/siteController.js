@@ -21,6 +21,7 @@ class SiteController {
         // }
         // var user = new userModel('',dat)
         // await user.save();
+        
         res.redirect('/auth/login')
     }
 
