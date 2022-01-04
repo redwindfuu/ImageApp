@@ -25,12 +25,9 @@ class AuthController {
             querySnapshot.forEach((doc) => {
                 console.log(doc.id, " => ", doc.data());
                 userID = doc.id;
-                res.send("Sucess");
-                h = new userModel(doc.id,doc.data())
-                // Do somethinghere
-                //
-                //
-                // function here
+             //   res.send("Sucess");
+              //  h = new userModel(doc.id,doc.data())
+                res.redirect('/gallery')
               });
         }else{
             res.redirect('/auth/login?erro=1');

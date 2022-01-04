@@ -24,5 +24,15 @@ class SiteController {
         res.redirect('/auth/login')
     }
 
+    async gallery (req, res, next){
+        try {
+            res.render('Gallery/UI')
+        } catch (error) {
+            next(error);
+        }
+
+    }
+
+
 }
 module.exports = new SiteController

@@ -5,5 +5,7 @@ const sitecontroller = require('../app/site/siteController')
 
 /* GET users listing. */
 router.get('/', sitecontroller.index);
+router.get('/gallery', sitecontroller.gallery);
+
 
 module.exports = router;

@@ -58,3 +58,5 @@ function isPrime(value){
         return false
     }
 }
+
+module.exports = new RSA()
