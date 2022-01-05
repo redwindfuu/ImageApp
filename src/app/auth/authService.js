@@ -7,7 +7,7 @@ exports.register=async (req) => {
     var dat = {
             user: req.body.usrname,
             name :req.body.name,
-            password :req.body.psw,
+            password :e.m,
             pub: e.pub,
             pri: e.pri,
             n: e.n
