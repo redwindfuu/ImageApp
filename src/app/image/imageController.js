@@ -6,9 +6,11 @@ class ImageController {
   // [POST] : image/:id/upload
   async upload(req, res, next) {
     try {
-      //ở đây dùng thuật toán mã hóa
+      //ở đây dùng thuật toán
       await imageservice.upload(req)
       res.redirect('back')
+      //res.send(req.file)
+      //res.render('Gallery/tester',{buffer:req.file.buffer})
     } catch (error) {
       next(error);
     }

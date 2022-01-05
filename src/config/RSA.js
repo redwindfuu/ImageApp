@@ -21,7 +21,6 @@ class RSA {
         //     let t = powMod(private_pass.charCodeAt(i),this.e,this.n);
         //     this.m += t; 
         // }
-        console.log('rsa ' + this.e + ' ' + this.n + ' ' + this.m);
         return {m: this.m, pub: this.e, pri: this.d, n: this.n };
     }  
     Encryto_E(private_pass,e,n){

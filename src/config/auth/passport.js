@@ -5,9 +5,7 @@ const authservice = require('../../app/auth/authService');
 passport.use(
   new LocalStrategy(async function (username, password, done) {
     try {
-
       var user = await authservice.checkuserExsit(username);
-      console.log(user);
       if (!user) {
         console.log('1')
         return done(null, false, { message: 'Invalid User' });
@@ -26,7 +24,6 @@ passport.use(
 async function validPassword(username, password) {
   var rs = new RSA();
   var psw_en = rs.Encryto_E(password,username.data.pub,username.data.n);
-  console.log('rsa ' + username.data.pub + ' ' + username.data.n + ' ' + this.m);
   return psw_en == username.data.password;
 }
 // setting session passport
