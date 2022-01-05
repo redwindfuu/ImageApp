@@ -1,76 +1,7 @@
-{{!-- <nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">
-				<img alt="Brand" id="avatar" style="width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        margin-right: 4px;" class="pull-right"
-					src="https://dthezntil550i.cloudfront.net/86/latest/861911302007288750002221253/05f85cab-dc3a-48e3-81ff-b7347d2e450b.png">
-			</a>
-			{{#if user}}
-			{{!-- {{!-- <p class="navbar-text navbar-right">Signed in as <a href="#"
-					class="navbar-link">{{user.data.name}}</a></p> --}}
-			{{!-- {{/if}}
-			{{!-- <div class="dropdown">
-				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="true">
-					Dropdown
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
-					<li role="separator" class="divider"></li>
-					<li><a href="#">Separated link</a></li>
-				</ul>
-			</div>
-		</div> --}}
-
-		{{!--
-	</div> --}}
-	{{!--
-</nav> --}}
-
-<nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">App Gallery</a>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
-				<div class="container-fluid">
-				{{#if user}}
-				 <a  class="navbar-text navbar-right" style="margin-top: 15px;" href="/auth/logout">Logout</a>
-				 <p class="navbar-text navbar-right" style="margin-top: 15px;"><a href="#"
-					class="navbar-link">{{user.data.name}}</a></p>
-				{{/if}}
-				<img alt="Brand" id="avatar" style="width: 28px;
-        		height: 28px;
-        		border-radius: 50%;
-        		margin-right: 4px;" class="pull-right"
-				src="https://dthezntil550i.cloudfront.net/86/latest/861911302007288750002221253/05f85cab-dc3a-48e3-81ff-b7347d2e450b.png">
-				</a>
-				</div>
-				
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
-</nav>
 
 
-<body>
+
+	{{>header}}
 
 	<nav>
 		<div class="row bar-tool">
@@ -86,10 +17,12 @@
 				Add image
 			</a>
 	</nav>
-	<form method="post" id="share-form" action="haha" class="row form-gallery">
+	<form method="post" id="share-form" action="/image/{{user.id}}/share" class="row form-gallery">
+		<input type="hidden" name="withUser" id="withUser" value="">
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox" name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg" value="1" id="id-1" class="imgCheck" />
+				<label for="id-1">Chọn ảnh để chia share</label>
 				<div class="thumbnail img-responsive">
 					<a href="#" title="Image 1"><img class="img-crop"
 							src="https://genk.mediacdn.vn/2019/12/18/photo-1-1576648714470777594840.jpg">
@@ -100,9 +33,10 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox" name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg" value="2" id="id-2" class="imgCheck" />
+				<label for="id-2">Chọn ảnh để chia share</label>
 				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1"><img class="img-crop"
+					<a href="#" title="Image 2"><img class="img-crop"
 							src="https://genk.mediacdn.vn/2018/3/15/remanime-152109809170177152965.png">
 					</a>
 				</div>
@@ -111,9 +45,10 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card img-format">
-				<input type="checkbox" name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg" value="3" id="id-3" class="imgCheck" />
+				<label for="id-3">Chọn ảnh để chia share</label>
 				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1">
+					<a href="#" title="Image 3">
 						<img class="img-crop"
 							src="https://c4.wallpaperflare.com/wallpaper/1016/85/224/final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
 					</a>
@@ -123,9 +58,10 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox" name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg" value="4" id="id-4" class="imgCheck" />
+				<label for="id-4">Chọn ảnh để chia share</label>
 				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1">
+					<a href="#" title="Image 4">
 						<img class="img-crop"
 							src="https://c4.wallpaperflare.com/wallpaper/1002/498/322/final-fantasy-final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
 					</a>
@@ -135,9 +71,10 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox" name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg" value="5" id="id-5" class="imgCheck" />
+				<label for="id-5">Chọn ảnh để chia share</label>
 				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1">
+					<a href="#" title="Image 5">
 						<img class="img-crop"
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1XoKNz9Rygt7-pNeLH0JhsFvGBV94zkdSiA&usqp=CAU">
 					</a>
@@ -147,9 +84,10 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox" name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg" value="6" id="id-6" class="imgCheck" />
+				<label for="id-6">Chọn ảnh để chia share</label>
 				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1">
+					<a href="#" title="Image 6">
 						<img class="img-crop"
 							src="https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/e9fef2d083cf11ea8f996dbfbe6e50b1.jpg">
 					</a>
@@ -159,9 +97,10 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox" name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg" value="7" id="id-7"  class="imgCheck" />
+				<label for="id-7">Chọn ảnh để chia share</label>
 				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1">
+					<a href="#" title="Image 7">
 						<img class="img-crop"
 							src="https://images.unsplash.com/photo-1494719019271-7bfff81660d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=74496a215491b1529d6702f146901970&auto=format&fit=crop&w=500&q=60">
 					</a>
@@ -171,9 +110,10 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox" name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg" value="8" id="id-8" class="imgCheck" />
+				<label for="id-8">Chọn ảnh để chia share</label>
 				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1">
+					<a href="#" title="Image 8">
 						<img class="img-crop"
 							src="https://i.pinimg.com/736x/25/f8/5d/25f85d6aae0d7a212febf8e6d479f0f3.jpg">
 					</a>
@@ -182,7 +122,7 @@
 		</div>
 	</form>
 
-	</div>
+	
 	<div id="modal" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -204,8 +144,8 @@
 					<h4 class="modal-title" id="gridSystemModalLabel">Upload image</h4>
 				</div>
 				<div class="modal-body">
-					<form id="my-form" action="" method="post" enctype="multipart/form-data">
-						<input type='file' onchange="readURL(this);" />
+					<form id="my-form" action="/image/{{user.id}}/upload" method="post" enctype="multipart/form-data">
+						<input type='file' name="image" onchange="readURL(this);" />
 						<img id="blah" src="http://placehold.it/180" alt="your image" />
 					</form>
 				</div>
@@ -226,44 +166,80 @@
 					<h4 class="modal-title" id="gridSystemModalLabel">share image with friend</h4>
 				</div>
 				<div class="modal-body">
-					Chọn tên id người muốn giử
+					<form method='get' autocomplete="off" >
+                            <div class="autocomplete">
+                                <label for="nameUser">Nhập tên người nhận:</label>
+                                <input id="nameUser" type="text"  placeholder="Tên sách">
+                            </div>
+                        </form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" form="share-form" class="btn btn-primary">Save changes</button>
+					<button type="submit" id="submit-share" form="share-form" class="btn btn-primary">Save changes</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<footer class="myFooter" id="footer-wrapper">
-		<div class="footer-icons">
-			<a href="https://www.pinterest.com/" class="generic-anchor" target="_blank"><i
-					class="fa fa-pinterest"></i></a>
-			<a href="https://www.facebook.com/" class="generic-anchor" target="_blank"><i
-					class="fa fa-facebook"></i></a>
-			<a href="https://twitter.com/" class="generic-anchor" target="_blank"><i class="fa fa-twitter"></i></a>
-			<a href="http://instagram.com/" class="generic-anchor" target="_blank"><i class="fa fa-instagram"></i></a>
-			<a href="https://www.youtube.com/" class="generic-anchor" target="_blank"><i class="fa fa-youtube"></i></a>
-			<a href="https://plus.google.com/" class="generic-anchor" target="_blank"><i
-					class="fa fa-google-plus"></i></a>
-		</div>
-		</section>
-		<section class="footer-bottom">
-			<div class="footer-bottom-wrapper">
-				<i class="fa fa-copyright" role="copyright"></i> 2021 <a href="https://codepen.io/pa_patki/"><strong>
-						Những con đỉ sài gòn</strong></a> <span class="footer-bottom-rights"> - All Rights Reserved -
-				</span>
-			</div>
-		</section>
-	</footer>
-
-
-
-
+	{{>footer}}
 	<script src="https://code.jquery.com/jquery-3.3.1.js"
 		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="/javascripts/main.js"></script>
+	<script type="text/javascript">
+        // Gallery image hover
+        $('.thumbnail').click(function () {
+            $('.modal-body-see').empty();
+            $($(this).parents('div').html()).appendTo('.modal-body-see');
+            $('#modal').modal({ show: true });
+        });
+       
+
+        $('#modal').on('show.bs.modal', function () {
+            $('.col-6,.row .thumbnail').addClass('blur');
+        })
+
+        $('#modal').on('hide.bs.modal', function () {
+            $('.col-6,.row .thumbnail').removeClass('blur');
+        })    
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        var checkItem =  $('input[name="myImg"]')
+        $('#checkall').change(function (e) {
+           var thisit = $(this).prop('checked')
+           checkItem.prop('checked' ,thisit)
+        })
+        checkItem.change(function (e) {
+            var check = checkItem.length === $('input[name="myImg"]:checked').length
+             $('#checkall').prop('checked' ,check)
+        })
+		var listUser =[]
+		$.getJSON('/api/users', function(data) {
+			for(const item of data) {
+				var str = item.user + "-"+ item.name
+				listUser.push(str)
+			}
+		})
+		var formshare = document.forms['share-form']
+		formshare.addEventListener('submit', function(e) {
+			var share = $('#nameUser').val().split('-')
+			
+		    $('#withUser').val(share[0])
+			console.log($('#withUser').val())
+			formshare.submit()
+		})
+		autocomplete(document.getElementById('nameUser'),listUser)
+    </script>
 
 
-</body>
+

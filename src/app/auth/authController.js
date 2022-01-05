@@ -18,8 +18,8 @@ class AuthController {
       if(req.user){
         res.redirect('/gallery')
       }else{
-        var err = req.query.erro || 0
-      res.render("auth/login",{err});
+        var err = req.query.err || 0
+      res.render("auth/login", {err} );
       }
       
     } catch (error) {
