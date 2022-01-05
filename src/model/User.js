@@ -29,6 +29,7 @@ class User {
       var check = await db.collection("USER").where('user','==' , this.data.user).get();
       check.forEach((doc) => {
       this.id = doc.id 
+      this.data.name = doc.data().name
       this.data.password = doc.data().password
       this.data.pub = doc.data().pub
       this.data.pri = doc.data().pri

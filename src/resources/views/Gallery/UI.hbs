@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+{{!-- <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">
@@ -8,31 +8,88 @@
         margin-right: 4px;" class="pull-right"
 					src="https://dthezntil550i.cloudfront.net/86/latest/861911302007288750002221253/05f85cab-dc3a-48e3-81ff-b7347d2e450b.png">
 			</a>
-			<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+			{{#if user}}
+			{{!-- {{!-- <p class="navbar-text navbar-right">Signed in as <a href="#"
+					class="navbar-link">{{user.data.name}}</a></p> --}}
+			{{!-- {{/if}}
+			{{!-- <div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="true">
+					Dropdown
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</div>
+		</div> --}}
+
+		{{!--
+	</div> --}}
+	{{!--
+</nav> --}}
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+				data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">App Gallery</a>
 		</div>
-	</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<div class="container-fluid">
+				{{#if user}}
+				 <a  class="navbar-text navbar-right" style="margin-top: 15px;" href="/auth/logout">Logout</a>
+				 <p class="navbar-text navbar-right" style="margin-top: 15px;"><a href="#"
+					class="navbar-link">{{user.data.name}}</a></p>
+				{{/if}}
+				<img alt="Brand" id="avatar" style="width: 28px;
+        		height: 28px;
+        		border-radius: 50%;
+        		margin-right: 4px;" class="pull-right"
+				src="https://dthezntil550i.cloudfront.net/86/latest/861911302007288750002221253/05f85cab-dc3a-48e3-81ff-b7347d2e450b.png">
+				</a>
+				</div>
+				
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
 </nav>
 
 
 <body>
-	
+
 	<nav>
 		<div class="row bar-tool">
 			<span class="check-all-img" style="margin-right: 10px;">
 				<input style="margin: auto;" type="checkbox" name="" value="1" id="checkall">
 				<label for="checkall">Check all</label>
-			</span>	
-			<button class="btn btn-primary " data-toggle="modal" data-target="#modal-share"  style="margin-right: 10px;">
+			</span>
+			<button class="btn btn-primary " data-toggle="modal" data-target="#modal-share" style="margin-right: 10px;">
 				Share
 			</button>
-			<a href="" id="insert-img"  style="margin-right: 10px;" data-toggle="modal" data-target="#modal-upload" class="btn btn-primary ">
+			<a href="" id="insert-img" style="margin-right: 10px;" data-toggle="modal" data-target="#modal-upload"
+				class="btn btn-primary ">
 				Add image
 			</a>
 	</nav>
 	<form method="post" id="share-form" action="haha" class="row form-gallery">
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox"  name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg[]" class="imgCheck" />
 				<div class="thumbnail img-responsive">
 					<a href="#" title="Image 1"><img class="img-crop"
 							src="https://genk.mediacdn.vn/2019/12/18/photo-1-1576648714470777594840.jpg">
@@ -43,7 +100,7 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox"  name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg[]" class="imgCheck" />
 				<div class="thumbnail img-responsive">
 					<a href="#" title="Image 1"><img class="img-crop"
 							src="https://genk.mediacdn.vn/2018/3/15/remanime-152109809170177152965.png">
@@ -54,10 +111,11 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card img-format">
-				<input type="checkbox"  name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg[]" class="imgCheck" />
 				<div class="thumbnail img-responsive">
 					<a href="#" title="Image 1">
-						<img class="img-crop" src="https://c4.wallpaperflare.com/wallpaper/1016/85/224/final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
+						<img class="img-crop"
+							src="https://c4.wallpaperflare.com/wallpaper/1016/85/224/final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
 					</a>
 				</div>
 			</div>
@@ -65,10 +123,11 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox"  name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg[]" class="imgCheck" />
 				<div class="thumbnail img-responsive">
 					<a href="#" title="Image 1">
-						<img class="img-crop" src="https://c4.wallpaperflare.com/wallpaper/1002/498/322/final-fantasy-final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
+						<img class="img-crop"
+							src="https://c4.wallpaperflare.com/wallpaper/1002/498/322/final-fantasy-final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
 					</a>
 				</div>
 			</div>
@@ -76,10 +135,11 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox"  name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg[]" class="imgCheck" />
 				<div class="thumbnail img-responsive">
 					<a href="#" title="Image 1">
-						<img class="img-crop" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1XoKNz9Rygt7-pNeLH0JhsFvGBV94zkdSiA&usqp=CAU">
+						<img class="img-crop"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1XoKNz9Rygt7-pNeLH0JhsFvGBV94zkdSiA&usqp=CAU">
 					</a>
 				</div>
 			</div>
@@ -87,10 +147,11 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox"  name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg[]" class="imgCheck" />
 				<div class="thumbnail img-responsive">
 					<a href="#" title="Image 1">
-						<img class="img-crop" src="https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/e9fef2d083cf11ea8f996dbfbe6e50b1.jpg">
+						<img class="img-crop"
+							src="https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/e9fef2d083cf11ea8f996dbfbe6e50b1.jpg">
 					</a>
 				</div>
 			</div>
@@ -98,10 +159,11 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox"  name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg[]" class="imgCheck" />
 				<div class="thumbnail img-responsive">
 					<a href="#" title="Image 1">
-						<img class="img-crop" src="https://images.unsplash.com/photo-1494719019271-7bfff81660d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=74496a215491b1529d6702f146901970&auto=format&fit=crop&w=500&q=60">
+						<img class="img-crop"
+							src="https://images.unsplash.com/photo-1494719019271-7bfff81660d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=74496a215491b1529d6702f146901970&auto=format&fit=crop&w=500&q=60">
 					</a>
 				</div>
 			</div>
@@ -109,16 +171,17 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox"  name="myImg[]" class="imgCheck" />
+				<input type="checkbox" name="myImg[]" class="imgCheck" />
 				<div class="thumbnail img-responsive">
 					<a href="#" title="Image 1">
-						<img class="img-crop" src="https://i.pinimg.com/736x/25/f8/5d/25f85d6aae0d7a212febf8e6d479f0f3.jpg">
+						<img class="img-crop"
+							src="https://i.pinimg.com/736x/25/f8/5d/25f85d6aae0d7a212febf8e6d479f0f3.jpg">
 					</a>
 				</div>
 			</div>
 		</div>
 	</form>
-	
+
 	</div>
 	<div id="modal" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
@@ -131,7 +194,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="modal fade" id="modal-upload" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -148,7 +211,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" form="my-form"  class="btn btn-primary">Save changes</button>
+					<button type="submit" form="my-form" class="btn btn-primary">Save changes</button>
 				</div>
 			</div>
 		</div>
@@ -163,11 +226,11 @@
 					<h4 class="modal-title" id="gridSystemModalLabel">share image with friend</h4>
 				</div>
 				<div class="modal-body">
-					Chọn tên id người muốn giử 
+					Chọn tên id người muốn giử
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" form="share-form"  class="btn btn-primary">Save changes</button>
+					<button type="submit" form="share-form" class="btn btn-primary">Save changes</button>
 				</div>
 			</div>
 		</div>

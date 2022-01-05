@@ -1,6 +1,7 @@
 const authservice = require("./authService");
 const db = require("../../config/firebase");
 const userModel = require("../../model/User");
+const e = require("express");
 class AuthController {
   // [GET]: /auth/register
   async register(req, res, next) {
@@ -14,8 +15,13 @@ class AuthController {
   // [GET]: /auth/login
   async login(req, res, next) {
     try {
-      var err = req.query.erro || 0
+      if(req.user){
+        res.redirect('/gallery')
+      }else{
+        var err = req.query.erro || 0
       res.render("auth/login",{err});
+      }
+      
     } catch (error) {
       next(error);
     }
@@ -34,13 +40,18 @@ class AuthController {
 
   async postlogin(req, res, next) {
     try {
-      console.log('here')
       if(req.user){
         res.redirect('/gallery')
+      }else{
+        res.redirect('/auth/login')
       }
     } catch (e) {
       next(e);
     }
+  }
+  async logout(req, res, next){
+    req.logout();
+    res.redirect('/');
   }
 }
 module.exports = new AuthController();

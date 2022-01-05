@@ -13,10 +13,8 @@ passport.use(
       }
       var passOk = await validPassword(user, password);
       if (!passOk) {
-        console.log('2')
         return done(null, false, { message: 'Invalid Password' });
       }
-      console.log(user)
       return done(null, user);
     } catch (e) {
       return done(e);
