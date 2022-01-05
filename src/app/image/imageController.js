@@ -7,8 +7,8 @@ class ImageController {
   async upload(req, res, next) {
     try {
       //ở đây dùng thuật toán mã hóa
-      console.log(req.file)
-      res.send(req.file);
+      await imageservice.upload(req)
+      res.redirect('back')
     } catch (error) {
       next(error);
     }

@@ -5,13 +5,10 @@ class Image {
     this.data = data || {};
   }
   async save() {
-    if (!this.id) {
-      if (check.empty) {
-        const obj = await db.collection("IMAGE").add(this.data);
-        this.id = obj.id;
-        return obj;
-      }
-      return 0;
+    if (!this.id) {  
+      const obj = await db.collection("IMAGE").add(this.data);
+      this.id = obj.id;
+      return obj;
     } else {
       const obj = await db.collection("IMAGE").doc(this.id);
       const res = await obj.update(this.data);
@@ -20,8 +17,9 @@ class Image {
     return 0;
   }
   set(data){
-    if(!this.data.name){
-      this.data.name = ''
+    
+    if(!this.data.originalname){
+      this.data.originalname = ''
     }
     if(!this.data.buffer){
       this.data.buffer = ''
@@ -39,8 +37,7 @@ class Image {
       this.data.iduser = {}
     }
 
-
-    this.data.name = data.name ? data.name : this.data.name
+    this.data.originalname = data.originalname ? data.originalname : this.data.originalname
     this.data.buffer = data.buffer ? data.buffer : this.data.buffer
     this.data.pri = data.pri ? data.pri : this.data.pri
     this.data.pub = data.pub ? data.pub : this.data.pub
@@ -64,7 +61,6 @@ class Image {
   getValues(){
     return {
         id: this.id,
-        name: this.data.name,
         buffer : this.data.buffer,
         pub : this.data.pub,
         n : this.data.n,
