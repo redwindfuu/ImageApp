@@ -3,6 +3,14 @@ class User {
   constructor(id, data) {
     this.id = id || "";
     this.data = data || {};
+    
+  }
+  async get(){
+    if(this.data){
+      var temp = await db.collection("USER").doc(this.id).get();
+      this.data = temp.data()
+    }
+    return this.data
   }
   async save() {
     if (!this.id && this.data.user) {
@@ -32,7 +40,6 @@ class User {
       this.data.name = doc.data().name
       this.data.password = doc.data().password
       this.data.pub = doc.data().pub
-      this.data.pri = doc.data().pri
       this.data.n = doc.data().n
       this.data.image_gallery = doc.data().image_gallery
       });
@@ -62,9 +69,6 @@ class User {
     if(!this.data.password){
       this.data.password = ''
     }
-    if(!this.data.pri){
-      this.data.pri = ''
-    }
     if(!this.data.pub){
       this.data.pub = ''
     }
@@ -77,7 +81,6 @@ class User {
     this.data.name = data.name ? data.name : this.data.name
     this.data.user = data.user ? data.user : this.data.user
     this.data.password = data.password ? data.password : this.data.password
-    this.data.pri = data.pri ? data.pri : this.data.pri
     this.data.pub = data.pub ? data.pub : this.data.pub
     this.data.n = data.n ? data.n : this.data.n
     this.data.image_gallery = data.image_gallery ? data.image_gallery : this.data.image_gallery
@@ -88,13 +91,6 @@ class User {
   } 
   get_image_gallery(){
       return this.data.image_gallery
-  }
-  getPrivate(){
-      return {
-          pri : this.data.pri,
-          password : this.data.password,
-          n : this.data.n,
-      }
   }
   getValues(){
     return {

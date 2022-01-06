@@ -4,6 +4,13 @@ class Image {
     this.id = id || "";
     this.data = data || {};
   }
+  async get(){
+    if(this.data){
+      var temp = await db.collection("IMAGE").doc(this.id).get();
+      this.data = temp.data()
+    }
+    return this.data
+  }
   async save() {
     if (!this.id) {  
       const obj = await db.collection("IMAGE").add(this.data);

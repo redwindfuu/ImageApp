@@ -7,7 +7,6 @@ passport.use(
     try {
       var user = await authservice.checkuserExsit(username);
       if (!user) {
-        console.log('1')
         return done(null, false, { message: 'Invalid User' });
       }
       var passOk = await validPassword(user, password);
