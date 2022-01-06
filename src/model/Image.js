@@ -5,13 +5,10 @@ class Image {
     this.data = data || {};
   }
   async save() {
-    if (!this.id) {
-      if (check.empty) {
-        const obj = await db.collection("IMAGE").add(this.data);
-        this.id = obj.id;
-        return obj;
-      }
-      return 0;
+    if (!this.id) {  
+      const obj = await db.collection("IMAGE").add(this.data);
+      this.id = obj.id;
+      return obj;
     } else {
       const obj = await db.collection("IMAGE").doc(this.id);
       const res = await obj.update(this.data);
@@ -20,54 +17,34 @@ class Image {
     return 0;
   }
   set(data){
-    if(!this.data.name){
-      this.data.name = ''
-    }
+    
     if(!this.data.buffer){
       this.data.buffer = ''
     }
-    if(!this.data.pri){
-      this.data.pri = ''
-    }
-    if(!this.data.pub){
-      this.data.pub = ''
-    }
-    if(!this.data.n){
-      this.data.n = 0
+    if(!this.data.key){
+      this.data.key = ''
     }
     if(!this.data.iduser){
-      this.data.iduser = {}
+      this.data.iduser = []
     }
 
-
-    this.data.name = data.name ? data.name : this.data.name
     this.data.buffer = data.buffer ? data.buffer : this.data.buffer
-    this.data.pri = data.pri ? data.pri : this.data.pri
-    this.data.pub = data.pub ? data.pub : this.data.pub
-    this.data.n = data.n ? data.n : this.data.n
+    this.data.key = data.key ? data.key : this.data.key
     this.iduser = data.iduser ? data.iduser : this.data.iduser
   }
 
-  add_iduser(data){
-    this.data.iduser.push(data)
+  add_iduser(user){
+    this.data.iduser.push(user)
+    this.save()
   } 
   get_iduser(){
     return this.data.iduser
   }
-
-  getPrivate(){
-      return {
-          pri : this.data.pri,
-          n : this.data.n,
-      }
-  }
   getValues(){
     return {
         id: this.id,
-        name: this.data.name,
         buffer : this.data.buffer,
-        pub : this.data.pub,
-        n : this.data.n,
+        key : this.data.key,
     }
   }
   printInfo() {

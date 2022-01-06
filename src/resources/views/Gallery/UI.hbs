@@ -1,0 +1,246 @@
+
+
+
+	{{>header}}
+			
+	<nav>
+		<div class="row bar-tool">
+			<span class="check-all-img" style="margin-right: 10px;">
+				<input style="margin: auto;" type="checkbox" name="" value="1" id="checkall">
+				<label for="checkall">Check all</label>
+			</span>
+			<button class="btn btn-primary " data-toggle="modal" data-target="#modal-share" style="margin-right: 10px;">
+				Share
+			</button>
+			<a href="" id="insert-img" style="margin-right: 10px;" data-toggle="modal" data-target="#modal-upload"
+				class="btn btn-primary ">
+				Add image
+			</a>
+			
+	</nav>
+	<form method="post" id="share-form" action="/image/{{user.id}}/share" class="row form-gallery">
+		<input type="hidden" name="withUser" id="withUser" value="">
+		<div class="col-lg-4 col-sm-6">
+			<div class="card">
+				<input type="checkbox" name="myImg" value="1" id="id-1" class="imgCheck" />
+				<label for="id-1">Chọn ảnh để chia share</label>
+				<div class="thumbnail img-responsive">
+					<a href="#" title="Image 1"><img class="img-crop"
+							src="https://genk.mediacdn.vn/2019/12/18/photo-1-1576648714470777594840.jpg">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-sm-6">
+			<div class="card">
+				<input type="checkbox" name="myImg" value="2" id="id-2" class="imgCheck" />
+				<label for="id-2">Chọn ảnh để chia share</label>
+				<div class="thumbnail img-responsive">
+					<a href="#" title="Image 2"><img class="img-crop"
+							src="https://genk.mediacdn.vn/2018/3/15/remanime-152109809170177152965.png">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-sm-6">
+			<div class="card img-format">
+				<input type="checkbox" name="myImg" value="3" id="id-3" class="imgCheck" />
+				<label for="id-3">Chọn ảnh để chia share</label>
+				<div class="thumbnail img-responsive">
+					<a href="#" title="Image 3">
+						<img class="img-crop"
+							src="https://c4.wallpaperflare.com/wallpaper/1016/85/224/final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-sm-6">
+			<div class="card">
+				<input type="checkbox" name="myImg" value="4" id="id-4" class="imgCheck" />
+				<label for="id-4">Chọn ảnh để chia share</label>
+				<div class="thumbnail img-responsive">
+					<a href="#" title="Image 4">
+						<img class="img-crop"
+							src="https://c4.wallpaperflare.com/wallpaper/1002/498/322/final-fantasy-final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-sm-6">
+			<div class="card">
+				<input type="checkbox" name="myImg" value="5" id="id-5" class="imgCheck" />
+				<label for="id-5">Chọn ảnh để chia share</label>
+				<div class="thumbnail img-responsive">
+					<a href="#" title="Image 5">
+						<img class="img-crop"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1XoKNz9Rygt7-pNeLH0JhsFvGBV94zkdSiA&usqp=CAU">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-sm-6">
+			<div class="card">
+				<input type="checkbox" name="myImg" value="6" id="id-6" class="imgCheck" />
+				<label for="id-6">Chọn ảnh để chia share</label>
+				<div class="thumbnail img-responsive">
+					<a href="#" title="Image 6">
+						<img class="img-crop"
+							src="https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/e9fef2d083cf11ea8f996dbfbe6e50b1.jpg">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-sm-6">
+			<div class="card">
+				<input type="checkbox" name="myImg" value="7" id="id-7"  class="imgCheck" />
+				<label for="id-7">Chọn ảnh để chia share</label>
+				<div class="thumbnail img-responsive">
+					<a href="#" title="Image 7">
+						<img class="img-crop"
+							src="https://images.unsplash.com/photo-1494719019271-7bfff81660d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=74496a215491b1529d6702f146901970&auto=format&fit=crop&w=500&q=60">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-sm-6">
+			<div class="card">
+				<input type="checkbox" name="myImg" value="8" id="id-8" class="imgCheck" />
+				<label for="id-8">Chọn ảnh để chia share</label>
+				<div class="thumbnail img-responsive">
+					<a href="#" title="Image 8">
+						<img class="img-crop"
+							src="https://i.pinimg.com/736x/25/f8/5d/25f85d6aae0d7a212febf8e6d479f0f3.jpg">
+					</a>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	
+	<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+				</div>
+				<div class="modal-body-see">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-upload" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="gridSystemModalLabel">Upload image</h4>
+				</div>
+				<div class="modal-body">
+					<form id="my-form" action="/image/{{user.id}}/upload" method="post" enctype="multipart/form-data">
+						<input type='file' name="image" onchange="readURL(this);" />
+						<img id="blah" src="http://placehold.it/180" alt="your image" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" form="my-form" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-share" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="gridSystemModalLabel">share image with friend</h4>
+				</div>
+				<div class="modal-body">
+					<form method='get' autocomplete="off" >
+                            <div class="autocomplete">
+                                <label for="nameUser">Nhập tên người nhận:</label>
+                                <input id="nameUser" type="text"  placeholder="Tên sách">
+                            </div>
+                        </form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" id="submit-share" form="share-form" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{>footer}}
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
+		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="/javascripts/main.js"></script>
+	<script type="text/javascript">
+        // Gallery image hover
+        $('.thumbnail').click(function () {
+            $('.modal-body-see').empty();
+            $($(this).parents('div').html()).appendTo('.modal-body-see');
+            $('#modal').modal({ show: true });
+        });
+       
+
+        $('#modal').on('show.bs.modal', function () {
+            $('.col-6,.row .thumbnail').addClass('blur');
+        })
+
+        $('#modal').on('hide.bs.modal', function () {
+            $('.col-6,.row .thumbnail').removeClass('blur');
+        })    
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        var checkItem =  $('input[name="myImg"]')
+        $('#checkall').change(function (e) {
+           var thisit = $(this).prop('checked')
+           checkItem.prop('checked' ,thisit)
+        })
+        checkItem.change(function (e) {
+            var check = checkItem.length === $('input[name="myImg"]:checked').length
+             $('#checkall').prop('checked' ,check)
+        })
+		var listUser =[]
+		$.getJSON('/api/users', function(data) {
+			for(const item of data) {
+				var str = item.user + "-"+ item.name
+				listUser.push(str)
+			}
+		})
+		var formshare = document.forms['share-form']
+		formshare.addEventListener('submit', function(e) {
+			var share = $('#nameUser').val().split('-')
+			
+		    $('#withUser').val(share[0])
+			console.log($('#withUser').val())
+			formshare.submit()
+		})
+		autocomplete(document.getElementById('nameUser'),listUser)
+    </script>
+
+
+
