@@ -2,6 +2,7 @@ const imageservice = require("./imageService");
 const db = require("../../config/firebase");
 const userModel = require("../../model/User");
 const e = require("express");
+const RSA = require("../../config/RSA");
 class ImageController {
   // [POST] : image/:id/upload
   async upload(req, res, next) {
@@ -9,8 +10,6 @@ class ImageController {
       //ở đây dùng thuật toán
       await imageservice.upload(req)
       res.redirect('back')
-      //res.send(req.file)
-      //res.render('Gallery/tester',{buffer:req.file.buffer})
     } catch (error) {
       next(error);
     }

@@ -4,6 +4,17 @@ class User {
     this.id = id || "";
     this.data = data || {};
   }
+  async get() {
+    if(this.id){
+      var user = await db.collection("USER").doc(this.id).get();
+      this.data = user.data();
+      if(!this.data.gallery){
+        this.data.gallery = []
+      }
+      return 1;
+    }
+    return 0;
+  }
   async save() {
     if (!this.id && this.data.user) {
       var check = await db
@@ -23,8 +34,8 @@ class User {
     }
     return 0;
   }
+
   async checkExist(){
-    
     if (this.data.user) {
       var check = await db.collection("USER").where('user','==' , this.data.user).get();
       check.forEach((doc) => {
@@ -67,15 +78,24 @@ class User {
     if(!this.data.n){
       this.data.n = 0
     }
-
+    if(!this.data.gallery){
+      this.data.gallery = []
+    }
     this.data.name = data.name ? data.name : this.data.name
     this.data.user = data.user ? data.user : this.data.user
     this.data.password = data.password ? data.password : this.data.password
     this.data.pub = data.pub ? data.pub : this.data.pub
     this.data.n = data.n ? data.n : this.data.n
- 
+    this.data.gallery = data.gallery ? data.gallery : this.data.gallery
   }
-
+  
+  add_gallery(img){
+    this.data.gallery.push(img)
+    this.save()
+  } 
+  get_gallery(){
+    return  {gallery: this.data.gallery}
+  }
   getValues(){
     return {
         name: this.data.name,

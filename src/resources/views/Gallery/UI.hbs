@@ -16,111 +16,36 @@
 				class="btn btn-primary ">
 				Add image
 			</a>
+			<a href="" id="download-img" style="margin-right: 10px;" data-toggle="modal" data-target="#download-upload"
+				class="btn btn-primary ">
+				Download image
+			</a>
 			
 	</nav>
 	<form method="post" id="share-form" action="/image/{{user.id}}/share" class="row form-gallery">
 		<input type="hidden" name="withUser" id="withUser" value="">
+		{{#if imglist}}
+		{{#each imglist}}
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
-				<input type="checkbox" name="myImg" value="1" id="id-1" class="imgCheck" />
-				<label for="id-1">Chọn ảnh để chia share</label>
+				<input type="checkbox" name="myImg" value="{{this.id}}" id="id-{{this.id}}" class="imgCheck" />
+				<label for="id-{{this.id}}">Chọn ảnh để chia share</label>
 				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 1"><img class="img-crop"
-							src="https://genk.mediacdn.vn/2019/12/18/photo-1-1576648714470777594840.jpg">
+					<a href="#" title="Image "><img class="img-crop"
+							src="data:image/jpeg;base64,{{srcImg this.buffer this.key}}">
 					</a>
 				</div>
 			</div>
 		</div>
+		{{/each}}
+		{{else}}
+			<h1> NOTHING HERE PLS UPLOAD IMAGE</h1>
+			<br/><br/><br/><br/><br/><br>
+			<br/><br/><br/><br/><br/><br>
+			<br/><br/><br/><br/><br/><br>
+			<br/><br/><br/><br/><br/><br>
 
-		<div class="col-lg-4 col-sm-6">
-			<div class="card">
-				<input type="checkbox" name="myImg" value="2" id="id-2" class="imgCheck" />
-				<label for="id-2">Chọn ảnh để chia share</label>
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 2"><img class="img-crop"
-							src="https://genk.mediacdn.vn/2018/3/15/remanime-152109809170177152965.png">
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-sm-6">
-			<div class="card img-format">
-				<input type="checkbox" name="myImg" value="3" id="id-3" class="imgCheck" />
-				<label for="id-3">Chọn ảnh để chia share</label>
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 3">
-						<img class="img-crop"
-							src="https://c4.wallpaperflare.com/wallpaper/1016/85/224/final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-sm-6">
-			<div class="card">
-				<input type="checkbox" name="myImg" value="4" id="id-4" class="imgCheck" />
-				<label for="id-4">Chọn ảnh để chia share</label>
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 4">
-						<img class="img-crop"
-							src="https://c4.wallpaperflare.com/wallpaper/1002/498/322/final-fantasy-final-fantasy-vii-remake-final-fantasy-vii-tifa-lockhart-hd-wallpaper-preview.jpg">
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-sm-6">
-			<div class="card">
-				<input type="checkbox" name="myImg" value="5" id="id-5" class="imgCheck" />
-				<label for="id-5">Chọn ảnh để chia share</label>
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 5">
-						<img class="img-crop"
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1XoKNz9Rygt7-pNeLH0JhsFvGBV94zkdSiA&usqp=CAU">
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-sm-6">
-			<div class="card">
-				<input type="checkbox" name="myImg" value="6" id="id-6" class="imgCheck" />
-				<label for="id-6">Chọn ảnh để chia share</label>
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 6">
-						<img class="img-crop"
-							src="https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/e9fef2d083cf11ea8f996dbfbe6e50b1.jpg">
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-sm-6">
-			<div class="card">
-				<input type="checkbox" name="myImg" value="7" id="id-7"  class="imgCheck" />
-				<label for="id-7">Chọn ảnh để chia share</label>
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 7">
-						<img class="img-crop"
-							src="https://images.unsplash.com/photo-1494719019271-7bfff81660d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=74496a215491b1529d6702f146901970&auto=format&fit=crop&w=500&q=60">
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-sm-6">
-			<div class="card">
-				<input type="checkbox" name="myImg" value="8" id="id-8" class="imgCheck" />
-				<label for="id-8">Chọn ảnh để chia share</label>
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image 8">
-						<img class="img-crop"
-							src="https://i.pinimg.com/736x/25/f8/5d/25f85d6aae0d7a212febf8e6d479f0f3.jpg">
-					</a>
-				</div>
-			</div>
-		</div>
+		{{/if}}
 	</form>
 
 	
@@ -170,7 +95,7 @@
 					<form method='get' autocomplete="off" >
                             <div class="autocomplete">
                                 <label for="nameUser">Nhập tên người nhận:</label>
-                                <input id="nameUser" type="text"  placeholder="Tên sách">
+                                <input id="nameUser" type="text"  placeholder="Tên người nhận">
                             </div>
                         </form>
 				</div>
@@ -240,6 +165,10 @@
 			formshare.submit()
 		})
 		autocomplete(document.getElementById('nameUser'),listUser)
+
+
+
+
     </script>
 
 

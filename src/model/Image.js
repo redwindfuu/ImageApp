@@ -16,6 +16,17 @@ class Image {
     }
     return 0;
   }
+  async get() {
+    if(this.id){
+      var user = await db.collection("IMAGE").doc(this.id).get();
+      this.data = user.data();
+      if(!this.data.iduser){
+        this.data.iduser = []
+      }
+      return 1;
+    }
+    return 0;
+  }
   set(data){
     
     if(!this.data.buffer){
@@ -30,12 +41,12 @@ class Image {
 
     this.data.buffer = data.buffer ? data.buffer : this.data.buffer
     this.data.key = data.key ? data.key : this.data.key
-    this.iduser = data.iduser ? data.iduser : this.data.iduser
+    this.data.iduser = data.iduser ? data.iduser : this.data.iduser
   }
 
-  add_iduser(user){
+  async add_iduser(user){
     this.data.iduser.push(user)
-    this.save()
+    await this.save()
   } 
   get_iduser(){
     return this.data.iduser

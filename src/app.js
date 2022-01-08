@@ -17,6 +17,7 @@ app.engine(
   '.hbs',
   exphbs.engine({
       extname: '.hbs',
+      helpers: require('./config/helper/handlebars'),
   })
 );
 

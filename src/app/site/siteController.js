@@ -20,9 +20,8 @@ class SiteController {
     async gallery(req, res, next) {
         try {
             if (req.user) {
-                // var listUser = await siteservice.list(req.user.id)
-                // console.log(listUser)
-                res.render('Gallery/UI',{userID: req.user.id})
+                var list = await siteservice.list(req.user.id)
+                res.render('Gallery/UI',{userID: req.user.id, imglist : list})
             } else {
                 res.redirect('/')
             }
@@ -34,7 +33,7 @@ class SiteController {
     async getUserList(req, res, next) {
         try {
             if (req.user) {
-                var listUser = await siteservice.list(req.user.id)
+                var listUser = await siteservice.listUser(req.user.id)
                 res.status(200).json(listUser)
             } else {
                 res.status(404).json({})
