@@ -91,7 +91,6 @@ class User {
   
   add_gallery(img){
     this.data.gallery.push(img)
-    this.save()
   } 
   get_gallery(){
     return  {gallery: this.data.gallery}

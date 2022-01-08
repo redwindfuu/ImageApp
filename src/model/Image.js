@@ -44,9 +44,8 @@ class Image {
     this.data.iduser = data.iduser ? data.iduser : this.data.iduser
   }
 
-  async add_iduser(user){
+  add_iduser(user){
     this.data.iduser.push(user)
-    await this.save()
   } 
   get_iduser(){
     return this.data.iduser
@@ -57,6 +56,9 @@ class Image {
         buffer : this.data.buffer,
         key : this.data.key,
     }
+  }
+  getKey(){
+    return this.data.key
   }
   printInfo() {
     if (this.id) {

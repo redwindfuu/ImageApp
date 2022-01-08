@@ -18,11 +18,11 @@ exports.upload = async (req) => {
     }
     var img = new imgmodel('', data)
     await img.save()
-    var user = new usermodel(req.user.id , '')
+    var user = new usermodel(req.user.id, '')
     await user.get()
     await user.add_gallery({
-        id : img.id,
-        key : img.getValues().key,
+        id: img.id,
+        key: img.getValues().key,
     })
     await user.save();
 
@@ -30,26 +30,31 @@ exports.upload = async (req) => {
 
 exports.share = async (req) => {
     var imageids = req.body.myImg || []
-    var userID = req.body.withUser
-    var USER = await db.collection("USER").where('user','==',userID).get() 
-    var iduser ;
+    if(!Array.isArray(imageids)){
+        var temp = imageids
+        imageids = new Array()
+        imageids.push(temp)
+    }
+    var userID = req.body.withUser || ''
+    if (imageids.length == 0 || userID.length == 0) {
+        return;
+    }
+    var USER = await db.collection("USER").where('user', '==', userID).get()
+    var iduser;
     USER.forEach((doc) => { iduser = doc.id });
     var user = new usermodel(iduser, '')
     await user.get()
-    
-    for(var i of imageids){
-        var img = new imgmodel(i,'');
+    for (var i of imageids) {
+        var img = new imgmodel(i, '');
         await img.get()
         var userListofImg = img.get_iduser();
-        if(!userListofImg.includes(iduser)){
+        if (!userListofImg.includes(iduser)) {
             await img.add_iduser(iduser)
-        }
-        var dat ={
-            id : img.id,
-            key : img.getValues().key,
-        }
-        var listImgofUser = user.get_gallery();
-        if(!listImgofUser.includes(dat)){
+            await img.save()
+            var dat = {
+                id: img.id,
+                key: img.getKey(),
+            }
             await user.add_gallery(dat)
             await user.save();
         }

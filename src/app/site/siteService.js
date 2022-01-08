@@ -4,6 +4,7 @@ const aesjs = require('aes-js')
 const { v4: uuidv4 } = require('uuid');
 const { BundleBuilder } = require('firebase-admin/firestore');
 const AES = require("../../config/AES")
+const RSA = require("../../config/RSA")
 const userModel = require('../../model/User')
 exports.list = async (myid) => {
     var list = [];
@@ -88,12 +89,20 @@ exports.test2 = async (myid) => {
     //     break   
     // }
 
-    var string = "hello world"
-    var k = pbkdf2.pbkdf2Sync(uuidv4(), 'salt', 1, 256 / 8, 'sha512')
-    var aes = new AES()
-    var en = aes.Encrypt(k, string)
-    console.log(en)
-    var de = aes.Decrypt(k, en)
-    console.log(de)
+    // var string = "hello world"
+    // var k = pbkdf2.pbkdf2Sync(uuidv4(), 'salt', 1, 256 / 8, 'sha512')
+    // var aes = new AES()
+    // var en = aes.Encrypt(k, string)
+    // console.log(en)
+    // var de = aes.Decrypt(k, en)
+    // console.log(de)
+
+    // var USER = await db.collection("USER").where('user','==',"mp269").get();
+    // var doc = USER.docs[0]
+    // console.log(doc.id)
+    // console.log(doc.data())
+    // console.log(doc.data().user)
+
+    
 
 }   

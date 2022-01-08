@@ -5,6 +5,9 @@ module.exports = {
     srcImg : (src,k) => {
         var aes = new AES();
         src = aes.Decrypt(k,src)
-        return src.toString('base64')
+        // var base64String = Buffer.from(src, 'hex').toString('base64')
+        // return src.toString('base64')
+        return src
+        // return base64String
     }
 }
