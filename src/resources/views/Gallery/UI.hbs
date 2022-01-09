@@ -29,13 +29,16 @@
 		<div class="col-lg-4 col-sm-6">
 			<div class="card">
 				<input type="checkbox" name="myImg" value="{{this.id}}" id="id-{{this.id}}" class="imgCheck" />
-				<label for="id-{{this.id}}">Chọn ảnh để chia share</label>
-				<div class="thumbnail img-responsive">
-					<a href="#" title="Image "><img class="img-crop"
-							src="data:image/jpeg;base64,{{srcImg this.buffer this.key}}">
-					</a>
-				</div>
+				<label for="id-{{this.id}}">Chọn ảnh</label>
+					<div >
+						<div class="thumbnail img-responsive">
+							<a href="#" title="Image "><img class="img-crop"
+									src="data:image/jpeg;base64,{{srcImg this.buffer this.key}}"/>
+							</a>
+						</div>
+					</div>
 			</div>
+			
 		</div>
 		{{/each}}
 		{{else}}
@@ -107,7 +110,7 @@
 		</div>
 	</div>
 
-	{{>footer}}
+	{{!-- {{>footer}} --}}
 	<script src="https://code.jquery.com/jquery-3.3.1.js"
 		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -116,8 +119,10 @@
         // Gallery image hover
         $('.thumbnail').click(function () {
             $('.modal-body-see').empty();
-            $($(this).parents('div').html()).appendTo('.modal-body-see');
+			$(this).find("a img").removeClass("img-crop");
+            $($(this).find("a").html()).appendTo('.modal-body-see');
             $('#modal').modal({ show: true });
+			$(this).find("a img").addClass("img-crop");
         });
        
 
