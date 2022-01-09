@@ -1,8 +1,5 @@
 const imageservice = require("./imageService");
-const db = require("../../config/firebase");
-const userModel = require("../../model/User");
 const e = require("express");
-const RSA = require("../../config/RSA");
 class ImageController {
   // [POST] : image/:id/upload
   async upload(req, res, next) {
@@ -17,9 +14,9 @@ class ImageController {
   //[POST] : image/:id/share/
   async share(req, res, next) {
     try {
-      res.send(req.body)
-      // await imageservice.share(req)
-      // res.redirect('back')
+      // res.send(req.body)
+      await imageservice.share(req)
+      res.redirect('back')
     } catch (error) {
       next(error);
     }

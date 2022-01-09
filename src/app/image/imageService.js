@@ -59,15 +59,4 @@ exports.share = async (req) => {
             await user.save();
         }
     }
-
-    // for (i in imageList.docs){
-    //     var doc = imageList.docs[i]
-    //     if (!imageids.includes(doc.id)){
-    //         continue
-    //     }
-    //     var data = doc.data()
-    //     data.iduser.push(userID)
-    //     var obj = await db.collection("IMAGE").doc(doc.id)
-    //     await obj.update(data)
-    // }
 }
