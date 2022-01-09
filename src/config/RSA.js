@@ -14,14 +14,14 @@ class RSA {
             this.q = genPrime()
         this.n = this.p * this.q;
         this.euler = (this.p - 1) * (this.q - 1);
-        this.e = Math.floor(Math.random() * (this.euler - 1)) + 1;
+        this.e = Arbitrary_Int_e(this.euler - 1);
         this.d = extend_euclid(this.e, this.euler)
         this.m = this.Encryto_E(private_pass,this.e,this.n);
         // for (let i = 0; i < private_pass.length; i++) {
         //     let t = powMod(private_pass.charCodeAt(i),this.e,this.n);
         //     this.m += t; 
         // }
-        return {m: this.m, pub: this.e, n: this.n };
+        return {m: this.m, pub: this.e, pri: this.d, n: this.n };
     }  
     Encryto_E(private_pass,e,n){
         var m ="";
@@ -32,6 +32,7 @@ class RSA {
         return m;
     }
 };
+
 function powMod(base, pow, mod) {
     var i, result = 1;
     for (i = 0; i < pow; i++) {
@@ -49,7 +50,22 @@ function genPrime() {
     }
     return value
 }
+function Arbitrary_Int_e(phi){
+    e = Math.floor(Math.random() * (phi - 1)) + 1;
+    if(parseInt(gcd(e, phi)) == 1){
+        return e;
+    }
+    return Arbitrary_Int_e(phi);
+}
 
+function gcd(a, b){
+    while (b){
+	t = a;
+	a = b;
+        b = t%b;
+    }
+    return a;
+}
 function isPrime(value) {
     var flag = true;
     if (value < 2) {
