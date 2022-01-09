@@ -32,11 +32,14 @@
 				<label for="id-{{this.id}}">Chọn ảnh</label>
 					<div >
 						<div class="thumbnail img-responsive">
-							<a href="#" title="Image "><img class="img-crop"
+							<a href="#" title="Image "><img id="{{this.id}}" class="img-crop"
 									src="data:image/jpeg;base64,{{srcImg this.buffer this.key}}"/>
 							</a>
 						</div>
 					</div>
+				<!-- <a class="btn btn-primary " download="{{this.id}}.jpg" 
+					href="data:image/jpeg;base64,{{srcImg this.buffer this.key}}"> Download
+				</a> -->
 			</div>
 			
 		</div>
@@ -149,10 +152,12 @@
         $('#checkall').change(function (e) {
            var thisit = $(this).prop('checked')
            checkItem.prop('checked' ,thisit)
+
         })
         checkItem.change(function (e) {
             var check = checkItem.length === $('input[name="myImg"]:checked').length
-             $('#checkall').prop('checked' ,check)
+            $('#checkall').prop('checked' ,check)
+
         })
 		var listUser =[]
 		$.getJSON('/api/users', function(data) {
@@ -164,14 +169,35 @@
 		var formshare = document.forms['share-form']
 		formshare.addEventListener('submit', function(e) {
 			var share = $('#nameUser').val().split('-')
-			
 		    $('#withUser').val(share[0])
 			console.log($('#withUser').val())
 			formshare.submit()
 		})
 		autocomplete(document.getElementById('nameUser'),listUser)
 
-
+		$('#download-img').click(function(){
+			var images = $('input[name="myImg"]:checked').toArray()
+			if (images.length==0)
+				return;
+			var imageids = []
+			for (var i of images)
+			{
+				// tách lấy id
+				imageids.push(i.id.split('-')[1])
+			}
+			var imagetags = document.getElementsByTagName('img');
+			for (var i of imagetags)
+			{
+				if (imageids.includes(i.id))
+				{
+					var link = document.createElement("a");
+					link.download = i.id + '.jpg';
+					link.href = i.src;
+					link.click();
+				}
+				
+			}
+		})
 
 
     </script>

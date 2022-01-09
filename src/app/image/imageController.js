@@ -17,9 +17,9 @@ class ImageController {
   //[POST] : image/:id/share/
   async share(req, res, next) {
     try {
-      // res.send(req.body)
-      await imageservice.share(req)
-      res.redirect('back')
+      res.send(req.body)
+      // await imageservice.share(req)
+      // res.redirect('back')
     } catch (error) {
       next(error);
     }
