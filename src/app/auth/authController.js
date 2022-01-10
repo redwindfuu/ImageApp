@@ -29,8 +29,8 @@ class AuthController {
   // [POST]: /auth/register
   async postregister(req, res, next) {
     try {
-      var check = await authservice.register(req);
-      res.redirect('/auth/login')
+        var check = await authservice.register(req);
+        res.redirect('/auth/login')
     } catch (error) {
       next(error)
     }

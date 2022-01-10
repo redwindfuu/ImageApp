@@ -5,7 +5,8 @@
       <h1>Register</h1>
       <p>Please fill in this form to create an account.</p>
       <hr>
-
+      <input type="hidden" id="n" name="n">
+      <input type="hidden" id="pub" name="pub">
       <label for="name"><b>Name</b></label>
       <input type="text" placeholder="Name" name="name" id="name" required>
 
@@ -23,3 +24,21 @@
     </form>
   </div>
 </body>
+<script src="/javascripts/main.js"></script>
+<script>
+  var form = document.forms['form_register']
+  var button = document.getElementById('register')
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var rsa = new RSA();
+    var pass = document.getElementById('psw')
+    var crypt = rsa.Encryto(pass.value);
+    pass.value=crypt.m
+    document.getElementById('pub').value=crypt.pub
+    document.getElementById('n').value=crypt.n
+    console.log(crypt.m);
+    console.log(crypt.pub);
+    console.log(crypt.n); 
+    form.submit();
+  })
+</script>
