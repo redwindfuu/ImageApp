@@ -5,8 +5,12 @@ class ImageController {
   async upload(req, res, next) {
     try {
       //ở đây dùng thuật toán
-      await imageservice.upload(req)
-      res.redirect('back')
+      if(req.user){
+        await imageservice.upload(req)
+        res.redirect('back')
+      }else{
+        res.redirect('/')
+      }
     } catch (error) {
       next(error);
     }
@@ -14,9 +18,12 @@ class ImageController {
   //[POST] : image/:id/share/
   async share(req, res, next) {
     try {
-      // res.send(req.body)
-      await imageservice.share(req)
+      if(req.user){
+        await imageservice.share(req)
       res.redirect('back')
+      }else{
+        res.redirect('/')
+      }
     } catch (error) {
       next(error);
     }
